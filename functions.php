@@ -4,20 +4,20 @@
 
 	function ispisiSadrzaj($result){
 		while($row = $result->fetch_assoc()) {
-			echo "<div class='item' ><br> ID: " . $row["id"] . "<br> Ime: " . $row["ime"] . "<br> Cena: " .$row["cena"] . "€<br>" . "<image class='slika' src='" . $row["slika"] . "' width='auto' height='250' >" . "<button class='buyBtn'>Buy</button>" . "</div>";
+			echo "<div class='item' ><br> ID: " . $row["ID"] . "<br> Cena: " .$row["Cena"] . "€<br>" . "<image class='slika' src='" . $row["Slika"] . "' width='auto' height='250' >" . "<button class='buyBtn'>Buy</button>" . "</div>";
 		}
 	}	
 
 	/*Uspostavlja se konekcija sa bazom i skuplja se sadrzaj uz pomoc stringa $tag
 	  koji se povezuje sa kolonom tag u bazi i onda se zove funkcija ispisiSadrzaj()*/
 
-	function buttonClick($tag){
-		$data = new mysqli("localhost","root","banana554","blips_and_chitz");
-		$result = $data->query("SELECT * FROM majice WHERE tag = '$tag'");
+	function buttonClick1($tag,$db){
+		$result = $db->query("SELECT * FROM proizvodi WHERE tip_id = '$tag'");
 		ispisiSadrzaj($result);
-		$result = $data->query("SELECT * FROM duks WHERE tag = '$tag'");
-		ispisiSadrzaj($result);
-		$result = $data->query("SELECT * FROM misc WHERE tag = '$tag'");
+	}
+
+	function buttonClick2($tag,$db){
+		$result = $db->query("SELECT * FROM proizvodi WHERE kategorija_id = '$tag'");
 		ispisiSadrzaj($result);
 	}
 ?>	

@@ -21,6 +21,9 @@
 		<input type="submit" name="juju" value="Jujutsu Kaisen">
 		<input type="submit" name="warcraft" value="WarCraft">
 		<input type="submit" name="all" value="All">
+		<input type="submit" name="majice" value="Majice">
+		<input type="submit" name="duks" value="Duksevi">
+		<input type="submit" name="razno" value="Razno">
 		</form>	';
 		echo '<div class="items">';
 
@@ -37,33 +40,33 @@
 		//Proveravamo da li postoji neki od indexa i pozivamo funkciju ako postoji
 
 		if(array_key_exists('hxh', $_POST)){
-			buttonClick('hxh');
+			buttonClick1(1,$db);
 		}
 		if(array_key_exists('rick', $_POST)){
-			buttonClick('rick');
+			buttonClick1(4,$db);
 		}
 		if(array_key_exists('juju', $_POST)){
-			buttonClick('juju');
+			buttonClick1(3,$db);
 		}
 		if(array_key_exists('warcraft', $_POST)){
-			buttonClick('warcraft');
+			buttonClick1(2,$db);
 		}
 		if(array_key_exists('all', $_POST)){
-			$result = $db->query("SELECT * FROM majice");
- 			ispisiSadrzaj($result);
- 			$result = $db->query("SELECT * FROM duks"); 
- 			ispisiSadrzaj($result);
- 			$result = $db->query("SELECT * FROM misc"); 
+			$result = $db->query("SELECT * FROM proizvodi");
  			ispisiSadrzaj($result);
 		}
-		/*$result = $db->query("SELECT * FROM majice");
- 		ispisiSadrzaj($result);
- 		$result = $db->query("SELECT * FROM duks"); 
- 		ispisiSadrzaj($result);
- 		$result = $db->query("SELECT * FROM misc"); 
- 		ispisiSadrzaj($result);*/
 
- 		crud();
+		if(array_key_exists('majice', $_POST)){
+			buttonClick2(2, $db);
+		}
+		if(array_key_exists('duks', $_POST)){
+			buttonClick2(1, $db);
+		}
+		if(array_key_exists('razno', $_POST)){
+			buttonClick2(3, $db);
+		}
+
+ 		crud($db);
 
  		echo '</div>';
 		require("footer.html");
