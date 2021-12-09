@@ -29,3 +29,17 @@ img{
 	height: 40px;
 	margin: 10px 0;
 }
+
+#select{
+	width:  100%;
+	height:  100px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-around;
+}
+
+#select input{
+	height:  30px;
+	width:  120px;
+}
