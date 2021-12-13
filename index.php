@@ -9,6 +9,7 @@
 		<link rel="stylesheet" type="text/css" href="css/footer.css">
 		<link rel="stylesheet" type="text/css" href="css/items.css">
 		<link rel="stylesheet" type="text/css" href="css/crud.css">
+		<link rel="stylesheet" type="text/css" href="css/main.css">
 	</head>
 	<body><?php 
 	 	

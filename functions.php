@@ -4,7 +4,7 @@
 
 	function ispisiSadrzaj($result){
 		while($row = $result->fetch_assoc()) {
-			echo "<div class='item' ><br> ID: " . $row["ID"] . "<br> Cena: " .$row["Cena"] . "€<br>" . "<image class='slika' src='" . $row["Slika"] . "' width='auto' height='250' >" . "<button class='buyBtn'>Buy</button>" . "</div>";
+			echo "<form method='post' class='item' ><input type='submit' name='deletebtn' class='delete' value='" . $row["ID"] . "'/><input type='submit' name='updatebtn' class='update' value='" . $row["ID"] . "'/><br> ID: " . "<br> Cena: " .$row["Cena"] . "€<br>" . "<image class='slika' src='" . $row["Slika"] . "' width='auto' height='250' >" . "<button class='buyBtn'>Buy</button>" . "</form>";
 		}
 	}	
 
