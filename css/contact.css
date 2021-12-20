@@ -1,0 +1,16 @@
+#contact{
+	width: 300px;
+	display: flex;
+
+	flex-direction: column;
+	align-items: center;
+}
+
+#contact>div{
+	width: 300px;
+	margin: 20px;
+}
+
+textarea {
+	resize:  none;
+}
