@@ -75,3 +75,7 @@ img{
 	justify-content: space-around;
 	align-items: center;
 }
+
+#productID{
+	display: none;
+}

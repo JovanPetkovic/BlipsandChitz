@@ -17,5 +17,5 @@
 		echo $db->error;
 		echo '<br>' . $str;
 	}
-
+	$db->close();
 ?>
