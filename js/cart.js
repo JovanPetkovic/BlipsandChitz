@@ -14,5 +14,7 @@ function clearCart(){
 	xmlHttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 	xmlHttp.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
 	xmlHttp.send();
-	setTimeout(location.reload(), 1000);
+	setTimeout(function(){
+		location.reload();
+	}, 2000);
 }

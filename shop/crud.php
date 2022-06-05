@@ -25,11 +25,14 @@
 		$tip = $db->query("SELECT * FROM tip");	
 ?>
 		<form method="post" id="addnew" enctype="multipart/form-data">
-			<label for="fimg">Image Source: </label>
-			<input type="file" name="fimg" required id="content-file"><br>
-			<label for="fcena">Cena: </label>
-			<input type="text" name="fcena" required id="content-cena"><br>
-			<input type="submit" name="fsubmit" value="Submit">
+			<div>
+				<label for="fimg">Image Source: </label>
+				<input type="file" name="fimg" required id="content-file">
+			</div>
+			<div>
+				<label for="fcena">Cena: </label>
+				<input type="text" name="fcena" required id="content-cena">
+			</div>
 			<select name="kategorija">
 				
 	<?php	
@@ -51,11 +54,12 @@
 				}
 			?>
 			</select>
+			<input type="submit" name="fsubmit" value="Submit">
 		</form>
 	<?php	
 		}
 	?>
-	<script type="text/javascript" src="js/crud.js"></script>
+	<script type="text/javascript" src="/BlipsandChitz/js/crud.js"></script>
 <?php
 
 
@@ -131,5 +135,6 @@
 			if(array_key_exists('razno', $_POST)){
 				buttonClick2(3, $db);
 			}
+			echo "</div>";
 		}
 ?>

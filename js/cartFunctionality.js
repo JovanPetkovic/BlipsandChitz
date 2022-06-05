@@ -28,7 +28,7 @@ function addToCart(event){
 	
 
 
-	xmlHttp.open('POST', 'cartFunctionality.php?' + str);
+	xmlHttp.open('POST', '../cartFunctionality.php?' + str);
 
 	xmlHttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 	xmlHttp.setRequestHeader('X-Requested-With', 'XMLHttpRequest');

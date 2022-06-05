@@ -20,7 +20,7 @@ class ShoppingCart {
 				$imgLink = $item->getImg();
 				$cena = $item->getCena();
 				echo "<div class='cartItem'>
-						<img src='../" . $imgLink . "' />" .
+						<img src='" . $imgLink . "' />" .
 						"<p>" . $cena . "</p>" . 
 					 "</div>"; 
 			}

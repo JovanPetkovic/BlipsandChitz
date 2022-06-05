@@ -1,7 +1,31 @@
 body{
 }
 #main {
-	background: black;
-	width: 100%;
+	background: #EF4533;
+	width: 1080px;
 	height:  80px;
+	display: flex;
+	flex-direction: row;
+	margin: 0 auto 200px auto;
+	justify-content: space-between;
+}
+
+#main img{
+	height: 200px;
+	width: auto;
+}
+
+#links{
+	width: 60%;
+	display: flex;
+	justify-content: space-between;
+	height: 100%;
+	margin: 0 20px;
+	align-items: center;
+}
+
+#links a{
+	text-decoration: none;
+	color: white;
+	font-family: Ubuntu;
 }

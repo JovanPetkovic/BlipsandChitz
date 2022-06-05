@@ -1,16 +1,42 @@
 #contact{
-	width: 300px;
+	margin: 30px auto;
 	display: flex;
-
-	flex-direction: column;
+	max-width: 700px;
+	flex-direction: row;
 	align-items: center;
+	justify-content: space-between;
+	height: 200px;
 }
 
 #contact>div{
 	width: 300px;
-	margin: 20px;
 }
 
 textarea {
 	resize:  none;
+}
+
+#fields{
+	display:  flex;
+	flex-direction: column;
+	height: 100%;
+	justify-content: space-around;
+	align-items: center;
+}
+
+#contact>div>div {
+	display: flex;
+	flex-direction: column;
+	width: 80%;
+}
+
+#contact>div>div input{
+	border: none;
+	border-bottom: 1px black solid;
+	height: 30px;
+}
+
+#contact>div>input {
+	height: 30px;
+	width: 80px;
 }

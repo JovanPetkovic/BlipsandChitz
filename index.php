@@ -26,33 +26,12 @@
 	<body><?php 
 	 	require("header.html");
 		require 'functions.php';
-		require 'crud.php';
+		require 'shop/crud.php';
 		require "cartFunctionality.php";
-		session_start();
 		// Funkcija crud daje CRUD funkcionalnosti web aplikaciji i prikazuje potrebne elemente web stranice
-
- 		crud($db);
 
  		echo '</div>';
  	?>
-	<form method="post" id="contact" action="contact.php" enctype="multipart/form-data" >
-		<div>
-			<label for="name">Name</label>
-			<input type="text" name="name" id="contact-name">
-		</div>
-		<div>
-			<label for="email">Email </label>
-			<input type="text" name="email" id="contact-email">
-		</div>
-		<div>
-			<label for="text">Message</label>
-			<textarea name="text" required cols='50' rows="10" id="contact-text"></textarea>
-		</div>
-		<input type="submit" name="submitbutton" value="Send">
-	</form>
-
-	<script type="text/javascript" src="js/contact.js"></script>
-	<script type="text/javascript" src="js/cartFunctionality.js"></script> 
 
 	</body>
 </html>
