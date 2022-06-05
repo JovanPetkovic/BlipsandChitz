@@ -19,9 +19,8 @@ class ShoppingCart {
 			foreach ($this->cartItems as $item) {
 				$imgLink = $item->getImg();
 				$cena = $item->getCena();
-				var_dump($item);
 				echo "<div class='cartItem'>
-						<img src='" . $imgLink . "' />" .
+						<img src='../" . $imgLink . "' />" .
 						"<p>" . $cena . "</p>" . 
 					 "</div>"; 
 			}
@@ -32,6 +31,10 @@ class ShoppingCart {
 		$this->start();
 	}
 
+	public function clear(){
+		unset($this->cartItems);
+		$this->cartItems = array();
+	}
 
 }	
 

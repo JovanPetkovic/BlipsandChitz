@@ -1,6 +1,6 @@
 var xmlHttp = new XMLHttpRequest();
-var items = document.querySelectorAll(".buyBtn");
-items.forEach( function(element, index) {
+var buyButton = document.querySelectorAll(".buyBtn");
+buyButton.forEach( function(element, index) {
 	element.addEventListener('click', addToCart);
 	console.log(element);
 });
