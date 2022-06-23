@@ -20,4 +20,16 @@
 		$result = $db->query("SELECT * FROM proizvodi WHERE kategorija_id = '$tag'");
 		ispisiSadrzaj($result);
 	}
+
+	function buttonClick($kat,$tip, $db)
+	{
+		
+		$result = $db->query("SELECT * FROM proizvodi WHERE kategorija_id = $kat AND tip_id = $tip ");
+		if($result != false)
+		{
+			ispisiSadrzaj($result);
+			return;		
+		}
+		echo $result->error;
+	}
 ?>	

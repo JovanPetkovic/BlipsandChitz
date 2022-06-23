@@ -7,7 +7,7 @@
 	function crud($db){
 		error_reporting(E_ALL);
 		menu($db);
-		formDisplay($db);
+		//formDisplay($db);
 		productDelete($db);
 		productUpdate($db);
 	}
@@ -98,16 +98,51 @@
 	function menu($db){
 
 			echo '<form method="post" id="select">
-				<input type="submit" name="hxh" value="Hunter X Hunter">
-				<input type="submit" name="rick" value="Rick & Morty">
-				<input type="submit" name="juju" value="Jujutsu Kaisen">
-				<input type="submit" name="warcraft" value="WarCraft">
-				<input type="submit" name="all" value="All">
-				<input type="submit" name="majice" value="Majice">
-				<input type="submit" name="duks" value="Duksevi">
-				<input type="submit" name="razno" value="Razno">
+				<div>
+					<label>Hunter X Hunter</label>
+					<input type="checkbox" name="tip" value="1">
+				</div>
+				<div>
+					<label>Rick & Morty</label>
+					<input type="checkbox" name="tip" value="4">
+				</div>
+				<div>
+					<label>Jujutsu Kaisen</label>
+					<input type="checkbox" name="tip" value="3">
+				</div>
+				<div>
+					<label>WarCraft</label>
+					<input type="checkbox" name="tip" value="2">
+				</div>
+				<div>
+					<label>All</label>
+					<input type="checkbox" name="all" value="All">
+				</div>
+				<div>
+					<label>Majice</label>
+					<input type="checkbox" name="kategorija" value="2">
+				</div>
+				<div>
+					<label>Duksevi</label>
+					<input type="checkbox" name="kategorija" value="1">
+				</div>
+				<div>
+					<label>Razno</label>
+					<input type="checkbox" name="kategorija" value="3">
+				</div>
+				<div>
+					<input type="submit">
+				</div>
 				</form>	';
 			echo '<div class="items">';
+
+			if(array_key_exists('kategorija', $_POST) or array_key_exists('tip',
+				$_POST))
+			{
+				$selectKategorija = $_POST['kategorija'];
+				$selectTip = $_POST['tip'];
+				buttonClick($selectKategorija,$selectTip, $db);
+			}
 
 			if(array_key_exists('hxh', $_POST)){
 				buttonClick1(1,$db);
