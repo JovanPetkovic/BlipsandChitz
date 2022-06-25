@@ -23,9 +23,27 @@
 
 	function buttonClick($kat,$tip, $db)
 	{
-		
-		$result = $db->query("SELECT * FROM proizvodi WHERE kategorija_id = $kat AND tip_id = $tip ");
-		if($result != false)
+		$fin = false;
+		if(!is_null($kat) && !is_null($tip) && !$fin)
+		{
+			$result = $db->query("SELECT * FROM proizvodi WHERE kategorija_id IN("
+			. implode(',',$kat) . ") AND tip_id IN("
+			. implode(',',$tip) . ")" );
+			$fin = true;
+		}
+		if(!is_null($kat)&& !$fin)
+		{
+			$result = $db->query("SELECT * FROM proizvodi WHERE kategorija_id IN("
+			. implode(',',$kat) . ")" );
+			$fin = true;
+		}
+		if(!is_null($tip)&&!$fin)
+		{
+			$result = $db->query("SELECT * FROM proizvodi WHERE tip_id IN("
+			. implode(',',$tip) . ")" );
+			$fin=true;
+		}
+		if($fin)
 		{
 			ispisiSadrzaj($result);
 			return;		

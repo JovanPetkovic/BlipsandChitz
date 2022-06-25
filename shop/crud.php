@@ -100,19 +100,19 @@
 			echo '<form method="post" id="select">
 				<div>
 					<label>Hunter X Hunter</label>
-					<input type="checkbox" name="tip" value="1">
+					<input type="checkbox" name="tip[]" value="1">
 				</div>
 				<div>
 					<label>Rick & Morty</label>
-					<input type="checkbox" name="tip" value="4">
+					<input type="checkbox" name="tip[]" value="4">
 				</div>
 				<div>
 					<label>Jujutsu Kaisen</label>
-					<input type="checkbox" name="tip" value="3">
+					<input type="checkbox" name="tip[]" value="3">
 				</div>
 				<div>
 					<label>WarCraft</label>
-					<input type="checkbox" name="tip" value="2">
+					<input type="checkbox" name="tip[]" value="2">
 				</div>
 				<div>
 					<label>All</label>
@@ -120,15 +120,15 @@
 				</div>
 				<div>
 					<label>Majice</label>
-					<input type="checkbox" name="kategorija" value="2">
+					<input type="checkbox" name="kategorija[]" value="2">
 				</div>
 				<div>
 					<label>Duksevi</label>
-					<input type="checkbox" name="kategorija" value="1">
+					<input type="checkbox" name="kategorija[]" value="1">
 				</div>
 				<div>
 					<label>Razno</label>
-					<input type="checkbox" name="kategorija" value="3">
+					<input type="checkbox" name="kategorija[]" value="3">
 				</div>
 				<div>
 					<input type="submit">
@@ -139,8 +139,8 @@
 			if(array_key_exists('kategorija', $_POST) or array_key_exists('tip',
 				$_POST))
 			{
-				$selectKategorija = $_POST['kategorija'];
-				$selectTip = $_POST['tip'];
+				$selectKategorija = $_POST['kategorija'] ?? null;
+				$selectTip = $_POST['tip'] ?? null;
 				buttonClick($selectKategorija,$selectTip, $db);
 			}
 
