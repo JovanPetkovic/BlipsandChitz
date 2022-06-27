@@ -1,6 +1,7 @@
 html,body {
 	margin: 0;
 	padding: 0;
+	overflow: 0;
 }
 
 #msg{
@@ -8,4 +9,10 @@ html,body {
 	top: calc(50vh - 50%);
 	left: calc(50vw - 50%);
 	z-index: 100;
+}
+
+.container{
+	margin: 0 auto;
+	width: 1080px;
+	height: 100%;
 }

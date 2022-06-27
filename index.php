@@ -21,7 +21,8 @@
 		<link rel="stylesheet" type="text/css" href="css/crud.css">
 		<link rel="stylesheet" type="text/css" href="css/main.css">
 		<link rel="stylesheet" type="text/css" href="css/contact.css">
-		<link rel="stylesheet" type="text/css" href="css/cart.css"> 
+		<link rel="stylesheet" type="text/css" href="css/cart.css">
+		<link rel="stylesheet" type="text/css" href="css/index.css">  
 	</head>
 	<body><?php 
 	 	require("header.html");
@@ -33,5 +34,28 @@
  		echo '</div>';
  	?>
 
+ 		<div id="hero-image">
+ 			<div class="container">
+ 				
+ 			</div>
+ 		</div>
+ 		<div id="our-picks">
+ 			<form class="container" id="picks-form"method="POST" action="shop/index.php">
+ 				<div id="wc3">
+ 					<input type="submit" name="tip[]" value="2">
+ 				</div>
+ 				<div id="juju">
+ 					<input type="submit" name="tip[]" value="3">
+ 				</div>
+ 				<div id="hxh">
+ 					<input type="submit" name="tip[]" value="1">
+ 				</div>
+ 				<div id="rm">
+ 					<input type="submit" name="tip[]" value="4">
+ 				</div>
+ 			</form>
+ 		</div>
+ 		<div id="shortcuts"></div>
+ 		<script type="text/javascript" src="js/index.js"></script>
 	</body>
 </html>

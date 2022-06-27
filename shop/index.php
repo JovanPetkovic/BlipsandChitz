@@ -31,9 +31,10 @@
 			// Funkcija crud daje CRUD funkcionalnosti web aplikaciji i prikazuje potrebne elemente web stranice
 
 	 		crud($db);
-
+	 		
 	 		echo '</div>';
  		?>
+ 			<div id="back"></div>
  		<script type="text/javascript" src="../js/cartFunctionality.js"></script> 
 	</body>
 </html>

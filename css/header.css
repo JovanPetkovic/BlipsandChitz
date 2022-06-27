@@ -1,13 +1,18 @@
 body{
 }
 #main {
-	background: #EF4533;
+	position: fixed;
+	top: 0;
+	left: 50%;
+	background-color: rgba(0,0,0,0.5);
 	width: 1080px;
-	height:  80px;
+	height:  100px;
 	display: flex;
 	flex-direction: row;
-	margin: 0 auto 200px auto;
-	justify-content: space-between;
+	margin: 0 auto 100px auto;
+	justify-content: space-around;
+	transform: translate(-50%, 0);
+	z-index: 100;
 }
 
 #main img{
@@ -15,17 +20,24 @@ body{
 	width: auto;
 }
 
-#links{
-	width: 60%;
+.links{
+	padding: 0 50px;
 	display: flex;
 	justify-content: space-between;
+	width: 20%;
 	height: 100%;
 	margin: 0 20px;
 	align-items: center;
 }
 
-#links a{
+.links a{
 	text-decoration: none;
 	color: white;
 	font-family: Ubuntu;
+}
+
+#ball{
+	position: fixed;
+	top: -200px;
+	transition: transform 0.5s ease-in-out;
 }

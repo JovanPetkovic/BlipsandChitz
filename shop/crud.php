@@ -97,7 +97,7 @@
 
 	function menu($db){
 
-			echo '<form method="post" id="select">
+			echo '<div id="hero"><form method="post" id="select">
 				<div>
 					<label>Hunter X Hunter</label>
 					<input type="checkbox" name="tip[]" value="1">
@@ -115,10 +115,6 @@
 					<input type="checkbox" name="tip[]" value="2">
 				</div>
 				<div>
-					<label>All</label>
-					<input type="checkbox" name="all" value="All">
-				</div>
-				<div>
 					<label>Majice</label>
 					<input type="checkbox" name="kategorija[]" value="2">
 				</div>
@@ -131,10 +127,11 @@
 					<input type="checkbox" name="kategorija[]" value="3">
 				</div>
 				<div>
-					<input type="submit">
+					<input type="submit" id="filter-submit">
 				</div>
 				</form>	';
 			echo '<div class="items">';
+
 
 			if(array_key_exists('kategorija', $_POST) or array_key_exists('tip',
 				$_POST))
@@ -143,33 +140,9 @@
 				$selectTip = $_POST['tip'] ?? null;
 				buttonClick($selectKategorija,$selectTip, $db);
 			}
-
-			if(array_key_exists('hxh', $_POST)){
-				buttonClick1(1,$db);
+			else{
+				buttonClick1($db);
 			}
-			if(array_key_exists('rick', $_POST)){
-				buttonClick1(4,$db);
-			}
-			if(array_key_exists('juju', $_POST)){
-				buttonClick1(3,$db);
-			}
-			if(array_key_exists('warcraft', $_POST)){
-				buttonClick1(2,$db);
-			}
-			if(array_key_exists('all', $_POST)){
-				$result = $db->query("SELECT * FROM proizvodi");
-	 			ispisiSadrzaj($result);
-			}
-
-			if(array_key_exists('majice', $_POST)){
-				buttonClick2(2, $db);
-			}
-			if(array_key_exists('duks', $_POST)){
-				buttonClick2(1, $db);
-			}
-			if(array_key_exists('razno', $_POST)){
-				buttonClick2(3, $db);
-			}
-			echo "</div>";
+			echo "</div></div>";
 		}
 ?>

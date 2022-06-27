@@ -1,16 +1,37 @@
-.items{
+#back{
+	background-image: url("../img/Hero.webp");
+	background-size: 100%;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
 	width: 100%;
-	height:  auto;
-	background-color:  #f1f1f1;
-	display: grid;
+	height: 100vh;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: -1;
+}
+
+.items{
+	padding: 10px;
+	width: calc(100%-200px);
+	overflow: hidden;
+	background-color:  transparent;
+	display: flex;
+	justify-content: space-around;
+	align-items: space-around;
+	flex-wrap: wrap;
+	/*isplay: grid;
 	grid-template-columns: 1fr 1fr 1fr 1fr;
 	grid-template-rows: 1fr 1fr 1fr;
 	column-gap:  20px;
 	row-gap: 20px;
+	*/
 }
 
 .item{
-	background-color: white;
+	width: 300px;
+	background-color: rgba(0,0,0,0.7);
+	color:  white;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -24,38 +45,80 @@ img{
 }
 
 .buyBtn{
-	width: 60%;
-	height: 40px;
+	width: 150px;
+	height: 50px;
 	margin: 10px 0;
+	background-color: transparent;
+	border: 1px solid white;
+	color: white;
+}
+
+#hero{
+	display: flex;
+	flex-direction: row;
+	margin-top: 200px;
 }
 
 #select{
-	width:  100%;
-	height:  100px;
+	color: white;
+	background-color: rgba(0,0,0,0.7);
+	text-align: left;
+	width:  200px;
+	height:  600px;
 	display: flex;
-	flex-direction: row;
-	align-items: center;
+	flex-direction: column;
 	justify-content: space-around;
 }
 
-#select input{
-	height:  30px;
-	width:  120px;
+#select>div{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+
+
+#select label{
+	font-size:  14px;
+}
+
+input[type=checkbox]{
+	color: transparent;
+	height:  20px;
+	width:  20px;
+}
+
+input{
+	cursor: pointer;
+}
+
+button{
+	cursor: pointer;
+}
+
+#filter-submit{
+	height:  30px !important;
+	width:  120px !important;
+	background-color: transparent;
+	color: white;
+	border: 1px solid white;
 }
 
 .delete{
-	position: relative;
-	top: 0;
-	left: calc(50px - 50%);
-	width: 50px;
+	margin: 10px 0;
+	background-color: transparent;
+	border: 1px solid white;
+	color: white;
+	width: 150px;
 	height: 50px;
 }
 
 .update{
-	position:  relative;
-	top: -50px;
-	left:  40%;
-	width:  50px;
+	margin:  10px 0;
+	background-color: transparent;
+	border: 1px solid white;
+	color: white;
+	width:  150px;
 	height:  50px;
 }
 

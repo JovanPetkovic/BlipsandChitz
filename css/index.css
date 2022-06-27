@@ -1,0 +1,94 @@
+body{
+	background: none !important;
+}
+
+#hero-image{
+	width: 100%;
+	height: 100vh;
+	background-image: url("../img/Hero.webp");
+	background-size: 100%;
+	background-repeat: no-repeat;
+}
+
+#our-picks{
+	width: 100%;
+	height: 100vh;
+	background-image: url("../img/rm.jpg");
+	background-size: cover;
+}
+
+#shortcuts{
+	width: 100%;
+	height: 100vh;
+}
+
+#picks-form{
+	display: flex;
+	flex-wrap: wrap;
+}
+
+#picks-form div{
+	opacity: 0.8;
+	width: 50%;
+	height: 50%;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transition: opacity 1s;
+}
+
+#picks-form div input{
+	background: transparent;	
+	opacity: 0;
+	width: 300px;
+	height: 120px;
+	transition: all 1s;
+	border: none;
+	color: transparent;
+}
+
+#picks-form div:hover{
+	opacity: 1;
+}
+
+#picks-form div:hover > input{
+	opacity: 1;
+}
+
+#wc3{
+	background-image: url("../img/wc3.jpg");
+	background-size: 150%;
+	background-position: 80% 20%;
+}
+#wc3 input[type=submit]{
+	background-image: url("../img/wc3logo1.png");
+	background-position: center;
+	background-size: 100% auto;
+}
+#rm{
+	background-image: url("../img/rmlink.jpg");
+	background-size: cover;
+}
+#rm input[type=submit]{
+	background-image: url("../img/rmlogo.png");
+	background-size: cover;
+}
+#juju{
+	background-image: url("../img/jj.jpg");
+	background-size: cover;
+}
+#juju input[type=submit]{
+	background-image: url("../img/jjlogo.png");
+	background-size: cover;
+}
+#hxh{
+	background-image: url("../img/hxh.jpg");
+	background-size: cover;
+}
+#hxh input[type=submit]{
+	background-image: url("../img/hxhlogo.png");
+	background-size: 100%;
+	background-position: center;
+}
