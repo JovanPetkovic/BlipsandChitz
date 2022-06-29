@@ -13,6 +13,7 @@
 
 .items{
 	padding: 10px;
+	margin: 0 auto;
 	width: calc(100%-200px);
 	overflow: hidden;
 	background-color:  transparent;
@@ -31,6 +32,7 @@
 .item{
 	width: 300px;
 	background-color: rgba(0,0,0,0.7);
+	margin: 20px 10px;
 	color:  white;
 	display: flex;
 	flex-direction: column;
@@ -40,8 +42,9 @@
 
 }
 
-img{
+.item img{
 	width:  200px;
+	box-shadow: 0 0 4px 2px white;
 }
 
 .buyBtn{
@@ -60,14 +63,30 @@ img{
 }
 
 #select{
-	color: white;
-	background-color: rgba(0,0,0,0.7);
-	text-align: left;
+	opacity: 0;
+	height:  100%;
 	width:  200px;
-	height:  600px;
+	position: fixed;
+	left: 0;
+	top: 0;
+	background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.7) 75%,rgba(0,0,0,0.6) 85%, 
+	rgba(0,0,0,0) 100% );
+}
+
+#select form{
+	
+	color: white;
+	background-color: rgba(0,0,0,0);
+	height: 500px;
+	position: fixed;
+	top: 50%;
+	transform: translateY(-50%);
+	text-align: left;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-around;
+	left: 10px;
+
 }
 
 #select>div{
@@ -141,4 +160,19 @@ button{
 
 #productID{
 	display: none;
+}
+
+#filter-btn{
+	background: transparent;
+	background-image: url("../img/filter.png");
+	background-size: cover;
+	height: 30px;
+	width: 30px;
+	position: fixed;
+	top: 20px;
+	left: 20px;
+	border: none;
+	margin: 0;
+	padding: 0;
+	z-index: 10;
 }

@@ -97,39 +97,43 @@
 
 	function menu($db){
 
-			echo '<div id="hero"><form method="post" id="select">
-				<div>
-					<label>Hunter X Hunter</label>
-					<input type="checkbox" name="tip[]" value="1">
+			echo '<button id="filter-btn"></button>
+				<div id="select">
+					<form method="post">
+					<div>
+						<label>Hunter X Hunter</label>
+						<input type="checkbox" name="tip[]" value="1">
+					</div>
+					<div>
+						<label>Rick & Morty</label>
+						<input type="checkbox" name="tip[]" value="4">
+					</div>
+					<div>
+						<label>Jujutsu Kaisen</label>
+						<input type="checkbox" name="tip[]" value="3">
+					</div>
+					<div>
+						<label>WarCraft</label>
+						<input type="checkbox" name="tip[]" value="2">
+					</div>
+					<div>
+						<label>Majice</label>
+						<input type="checkbox" name="kategorija[]" value="2">
+					</div>
+					<div>
+						<label>Duksevi</label>
+						<input type="checkbox" name="kategorija[]" value="1">
+					</div>
+					<div>
+						<label>Razno</label>
+						<input type="checkbox" name="kategorija[]" value="3">
+					</div>
+					<div>
+						<input type="submit" id="filter-submit">
+					</div>
+					</form>	
 				</div>
-				<div>
-					<label>Rick & Morty</label>
-					<input type="checkbox" name="tip[]" value="4">
-				</div>
-				<div>
-					<label>Jujutsu Kaisen</label>
-					<input type="checkbox" name="tip[]" value="3">
-				</div>
-				<div>
-					<label>WarCraft</label>
-					<input type="checkbox" name="tip[]" value="2">
-				</div>
-				<div>
-					<label>Majice</label>
-					<input type="checkbox" name="kategorija[]" value="2">
-				</div>
-				<div>
-					<label>Duksevi</label>
-					<input type="checkbox" name="kategorija[]" value="1">
-				</div>
-				<div>
-					<label>Razno</label>
-					<input type="checkbox" name="kategorija[]" value="3">
-				</div>
-				<div>
-					<input type="submit" id="filter-submit">
-				</div>
-				</form>	';
+				<div id="hero">';
 			echo '<div class="items">';
 
 
