@@ -2,9 +2,9 @@
 
 	/* Element baze se pretvara u niz informaciaj i onda se u odgovarajucem formatu ispisuje*/
 
-	function ispisiSadrzaj($result){
+	function ispisiSadrzaj($result, $str){
 		while($row = $result->fetch_assoc()) {
-			echo "<form method='post' class='item' ><input name='id' id='productID' value='" . $row["ID"] . "'/>" . " <p class='cena' value='" .$row["Cena"]. "'>" .$row["Cena"] . "€</p>" . "<image class='slika' src='../" . $row["Slika"] . "' width='auto' height='250' >" . "<button type='submit' name='addToCart' class='buyBtn'>Add to Cart</button><input type='submit' name='deletebtn' class='delete' value='Delete'/><input type='submit' name='updatebtn' class='update' value='Update'/>" . "</form>";
+			echo "<form method='post' class='item' ><input name='id' id='productID' value='" . $row["ID"] . "'/>" . " <p class='cena' value='" .$row["Cena"]. "'>" .$row["Cena"] . "€</p>" . "<image class='slika' src=' ". $str . $row["Slika"] . "' width='auto' height='250' >" . "<button type='submit' name='addToCart' class='buyBtn'>Add to Cart</button><input type='submit' name='deletebtn' class='delete' value='Delete'/><input type='submit' name='updatebtn' class='update' value='Update'/>" . "</form>";
 		}
 	}	
 
@@ -13,7 +13,7 @@
 
 	function buttonClick1($db){
 		$result = $db->query("SELECT * FROM proizvodi");
-		ispisiSadrzaj($result);
+		ispisiSadrzaj($result,"../");
 	}
 
 
@@ -41,7 +41,7 @@
 		}
 		if($fin)
 		{
-			ispisiSadrzaj($result);
+			ispisiSadrzaj($result,"../");
 			return;		
 		}
 		echo $result->error;

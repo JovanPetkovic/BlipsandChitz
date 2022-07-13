@@ -25,14 +25,11 @@
 		$tip = $db->query("SELECT * FROM tip");	
 ?>
 		<form method="post" id="addnew" enctype="multipart/form-data">
-			<div>
+			<div id="img-src">
 				<label for="fimg">Image Source: </label>
 				<input type="file" name="fimg" required id="content-file">
 			</div>
-			<div>
-				<label for="fcena">Cena: </label>
-				<input type="text" name="fcena" required id="content-cena">
-			</div>
+			<input type="text" name="fcena" required id="content-cena" placeholder="Cena">
 			<select name="kategorija">
 				
 	<?php	
@@ -83,13 +80,13 @@
 			echo '<input type="text" name="novaCena" value="unesite cenu">';
 			echo '<input type="submit" name="updateCena" value="' . $id . '">';
 			echo '</form>';
-			ispisiSadrzaj($db->query("SELECT * FROM proizvodi"));
+			ispisiSadrzaj($db->query("SELECT * FROM proizvodi"),"../");
 		}
 		if(isset($_POST['novaCena'])&& isset($_POST['updateCena'])){
 			$cena = $_POST['novaCena'];
 			$qry = 'UPDATE proizvodi SET Cena=' . $cena . ' WHERE ID =' . $_POST['updateCena'];
 			$db->query($qry);
-			ispisiSadrzaj($db->query("SELECT * FROM proizvodi"));
+			ispisiSadrzaj($db->query("SELECT * FROM proizvodi"),"../");
 		}
 	}
 

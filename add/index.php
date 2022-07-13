@@ -21,13 +21,18 @@
 		<link rel="stylesheet" type="text/css" href="../css/crud.css">
 		<link rel="stylesheet" type="text/css" href="../css/main.css">
 		<link rel="stylesheet" type="text/css" href="../css/contact.css">
-		<link rel="stylesheet" type="text/css" href="../css/cart.css"> 
+		<link rel="stylesheet" type="text/css" href="../css/cart.css">
+		<link rel="stylesheet" type="text/css" href="../css/add.css"> 
 	</head>
 	<body>
 		<?php
 			require("../header.html");
+		?>
+		<div class="bc">
+		<?php
 			require '../shop/crud.php';
 			formDisplay($db);
 		?>
+		</div>
 	</body>
 </html>

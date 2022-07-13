@@ -10,16 +10,23 @@ body{
 	background-repeat: no-repeat;
 }
 
-#our-picks{
+#shortcuts{
 	width: 100%;
 	height: 100vh;
 	background-image: url("../img/rm.jpg");
 	background-size: cover;
 }
 
-#shortcuts{
+#our-picks{
 	width: 100%;
-	height: 100vh;
+	background-image: url("../img/shop.jpg");
+	background-size: cover;
+	background-position: center;
+}
+
+#our-picks div{
+	width: 1080px;
+	margin:  o auto;
 }
 
 #picks-form{

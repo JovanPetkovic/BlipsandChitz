@@ -1,0 +1,45 @@
+#addnew{
+	margin: 30px auto;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+	height: 300px;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	background: rgba(0,0,0,0.7);
+	color: white;
+}
+#addnew>select{
+	width: 200px;
+	height:  30px;
+	background-color: transparent;
+	border: 2px #F2644B solid;
+	border-radius: 5px;
+	color: white;
+}
+
+#img-src{
+	width: 300px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+#addnew input[type="submit"]{
+	width: 150px;
+	height: 30px;
+	border: 2px #F2644B solid;
+	background: transparent;
+	border-radius: 5px;
+	color: white;
+}
+
+input[name="fcena"]{
+	color: white;
+	background: transparent;
+	border: 2px #F2644B solid;
+	border-radius: 5px;
+}

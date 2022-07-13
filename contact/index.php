@@ -25,23 +25,23 @@
 	</head>
 	<body>
 		<?php require("../header.html"); ?>
-		<form method="post" id="contact" action="contact.php" enctype="multipart/form-data" >
-			<div id="fields">
-				<div>
-					<label for="name">Name</label>
-					<input type="text" name="name" id="contact-name">
+		<div class="bc">
+			<form method="post" id="contact" action="contact.php" enctype="multipart/form-data" >
+				<div id="fields">
+					<div>
+						<input type="text" name="name" id="contact-name" placeholder="Name">
+					</div>
+					<div>
+						<input type="text" name="email" id="contact-email"
+						placeholder="Email">
+					</div>
+					<input type="submit" name="submitbutton" value="Send">
 				</div>
-				<div>
-					<label for="email">Email </label>
-					<input type="text" name="email" id="contact-email">
+				<div id="text-area">
+					<textarea name="text" required cols='50' rows="10" id="contact-text" placeholder="Message"></textarea>
 				</div>
-				<input type="submit" name="submitbutton" value="Send">
-			</div>
-			<div id="text-area">
-				<label for="text">Message</label>
-				<textarea name="text" required cols='50' rows="10" id="contact-text"></textarea>
-			</div>
-		</form>	
+			</form>	
+		</div>
 		<script type="text/javascript" src="js/contact.js"></script>
 	</body>
 </html>

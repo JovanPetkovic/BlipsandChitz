@@ -14,7 +14,7 @@
 .items{
 	padding: 10px;
 	margin: 0 auto;
-	width: calc(100%-200px);
+	width: calc(100100% - 200px);
 	overflow: hidden;
 	background-color:  transparent;
 	display: flex;
@@ -39,6 +39,7 @@
 	align-items: center;
 	text-align: center;
 	justify-content: space-around;
+	border-radius: 10px;
 
 }
 
@@ -48,12 +49,14 @@
 }
 
 .buyBtn{
-	width: 150px;
-	height: 50px;
 	margin: 10px 0;
-	background-color: transparent;
-	border: 1px solid white;
 	color: white;
+	border: none;
+	border-radius: 5px;
+	height: 40px;
+	width: 140px;
+	border: 2px solid #F2644B;
+	background: transparent;
 }
 
 #hero{
@@ -124,6 +127,7 @@ button{
 }
 
 .delete{
+	display: none;
 	margin: 10px 0;
 	background-color: transparent;
 	border: 1px solid white;
@@ -133,6 +137,7 @@ button{
 }
 
 .update{
+	display: none;
 	margin:  10px 0;
 	background-color: transparent;
 	border: 1px solid white;

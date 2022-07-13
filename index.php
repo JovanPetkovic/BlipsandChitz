@@ -29,6 +29,7 @@
 		require 'functions.php';
 		require 'shop/crud.php';
 		require "cartFunctionality.php";
+		require 'ourPicks.php';
 		// Funkcija crud daje CRUD funkcionalnosti web aplikaciji i prikazuje potrebne elemente web stranice
 
  		echo '</div>';
@@ -39,7 +40,7 @@
  				
  			</div>
  		</div>
- 		<div id="our-picks">
+ 		<div id="shortcuts">
  			<form class="container" id="picks-form"method="POST" action="shop/index.php">
  				<div id="wc3">
  					<input type="submit" name="tip[]" value="2">
@@ -55,7 +56,12 @@
  				</div>
  			</form>
  		</div>
- 		<div id="shortcuts"></div>
+ 		<div id="our-picks">
+ 			<div class="items">
+ 				<?php ourPicks($db) ?>
+ 			</div>
+ 		</div>
+
  		<script type="text/javascript" src="js/index.js"></script>
 	</body>
 </html>
