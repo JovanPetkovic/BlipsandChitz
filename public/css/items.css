@@ -14,12 +14,12 @@
 .items{
 	padding: 10px;
 	margin: 0 auto;
-	width: calc(100100% - 200px);
+	margin-top: 100px;
+	width: 1200px;
 	overflow: hidden;
 	background-color:  transparent;
 	display: flex;
 	justify-content: space-around;
-	align-items: space-around;
 	flex-wrap: wrap;
 	/*isplay: grid;
 	grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -74,28 +74,28 @@
 	top: 0;
 	background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.7) 75%,rgba(0,0,0,0.6) 85%, 
 	rgba(0,0,0,0) 100% );
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 #select form{
 	
 	color: white;
+	margin: 10px;
 	background-color: rgba(0,0,0,0);
-	height: 500px;
-	position: fixed;
-	top: 50%;
-	transform: translateY(-50%);
 	text-align: left;
 	display: flex;
 	flex-direction: column;
-	justify-content: space-around;
 	left: 10px;
 
 }
 
-#select>div{
+#select form div{
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	margin: 0.5rem 0;
 }
 
 

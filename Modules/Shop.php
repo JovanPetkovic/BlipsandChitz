@@ -1,25 +1,27 @@
 <?php
 
+namespace Modules;
+
 use Modules\Item;
 
 class Shop
 {
-    static $Items = Array();
+    static $items = array();
 
     public static function getItems($db)
     {
         $result = $db->query("SELECT * FROM proizvodi");
         while($row = $result->fetch_assoc())
         {
-            array_push($items,Modules\Item::Item($row));
+            array_push(Shop::$items,new Item($row));
         }
     }
 
-    public static function ispisiSadrzaj($result, $str)
+    public static function ispisiSadrzaj()
     {
-        foreach (Shop->Items as $item)
+        foreach (Shop::$items as $item)
         {
-
+            $item->display();
         }
     }
 

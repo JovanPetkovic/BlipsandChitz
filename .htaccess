@@ -1,7 +1,9 @@
+DirectoryIndex public/index.php
+
+Options -Indexes
+
 RewriteEngine On
-RewriteBase /BlipsandChitz/
-
-RewriteCond %{THE_REQUEST} /public/([^\s?]*) [NC]
-RewriteRule ^ %1 [L,NE,R=302]
-
-RewriteRule ^((?!public/).*)$ public/$1 [L,NC]
+RewriteBase /BlipsandChitz
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*)$ public/index\.php [QSA,L]

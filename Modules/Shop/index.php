@@ -24,7 +24,7 @@
 	</head>
 	<body>
 		<?php 
-		 	require("../header.html");
+		 	require("../header.php");
 			require '../functions.php';
 			require 'crud.php';
 			require "../cartFunctionality.php";

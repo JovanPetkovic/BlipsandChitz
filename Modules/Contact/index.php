@@ -24,7 +24,7 @@
 		<link rel="stylesheet" type="text/css" href="../css/cart.css"> 
 	</head>
 	<body>
-		<?php require("../header.html"); ?>
+		<?php require("../header.php"); ?>
 		<div class="bc">
 			<form method="post" id="contact" action="contact.php" enctype="multipart/form-data" >
 				<div id="fields">
