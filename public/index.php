@@ -1,12 +1,26 @@
 <?php
 
-	$mysql_server = "localhost";	
-	$mysql_user = "root";
-	$mysql_password = "banana554";
-	$mysql_db = "blips_and_chitz";
-	$db = new mysqli($mysql_server,$mysql_user,$mysql_password,$mysql_db) or die("could not connect to db");
+$mysql_server = "localhost";
+$mysql_user = "root";
+$mysql_password = "banana554";
+$mysql_db = "blips_and_chitz";
+$db = new mysqli($mysql_server,$mysql_user,$mysql_password,$mysql_db) or die("could not connect to db");
+
+spl_autoload_register(function($class)
+{
+    $path = __DIR__ . '/../' . str_replace('\\', '/' , $class) . '.php';
+
+    require $path;
+});
+
+use Modules\Add;
+use Modules\Cart;
+use Modules\Contact;
+use Modules\Shop;
+
 
 ?>
+
 
 <!DOCTYPE html>
 <html>
@@ -24,12 +38,13 @@
 		<link rel="stylesheet" type="text/css" href="css/cart.css">
 		<link rel="stylesheet" type="text/css" href="css/index.css">  
 	</head>
-	<body><?php 
-	 	require("header.html");
-		require 'functions.php';
-		require 'shop/crud.php';
-		require "cartFunctionality.php";
-		require 'ourPicks.php';
+	<body><?php
+        $link = $_SERVER["DOCUMENT_ROOT"] . "/BlipsandChitz/";
+	 	require $link . "header.html";
+		require $link . "functions.php";
+		require $link . "/Modules/Shop/crud.php";
+		require $link . "cartFunctionality.php";
+		require $link . "ourPicks.php";
 		// Funkcija crud daje CRUD funkcionalnosti web aplikaciji i prikazuje potrebne elemente web stranice
 
  		echo '</div>';

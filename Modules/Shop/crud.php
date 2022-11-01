@@ -16,46 +16,7 @@
 	
 ?>	
 	
-<?php
-	//Funkcija za prikazivanje forme
-	function formDisplay($db){
-		// Kategorija prikazuje u koji zanr pripadaju proizvodi(HxH, Jujutsu...)
-		// Tip predstavlja koji je tip odece u pitanju(majica, duks...)
-		$kategorija = $db->query("SELECT * FROM kategorije");
-		$tip = $db->query("SELECT * FROM tip");	
-?>
-		<form method="post" id="addnew" enctype="multipart/form-data">
-			<div id="img-src">
-				<label for="fimg">Image Source: </label>
-				<input type="file" name="fimg" required id="content-file">
-			</div>
-			<input type="text" name="fcena" required id="content-cena" placeholder="Cena">
-			<select name="kategorija">
-				
-	<?php	
-			// Uzimamo i ispisujemo imena kategorija proizvoda u dropdown
-			while($row = $kategorija->fetch_assoc()){
-	?>
-				<option value="<?php echo $row['kategorija_id']; ?>"><?php echo $row['imeKategorije']?></option>
-	<?php   
-			}
-	?>
-			</select>
-			<select name="tip">
-	<?php
-				//uzimamo i ispisujemo tip proizvoda u dropdown
-				while($row = $tip->fetch_assoc()){
-	?>
-				<option value="<?php echo $row['tip_id'];?>"><?php echo $row['ime'];?></option>
-			<?php
-				}
-			?>
-			</select>
-			<input type="submit" name="fsubmit" value="Submit">
-		</form>
-	<?php	
-		}
-	?>
+
 	<script type="text/javascript" src="/BlipsandChitz/js/crud.js"></script>
 <?php
 
