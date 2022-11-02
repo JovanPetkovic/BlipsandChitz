@@ -19,40 +19,49 @@ class Shop
 
     public static function ispisiSadrzaj()
     {
-        foreach (Shop::$items as $item)
+        if(isset($_POST['tip'])||isset($_POST['kategorija']))
         {
-            $item->display();
+            Shop::filterItems($_POST['kategorija'] ?? null, $_POST['tip'] ?? null);
+        }
+        else {
+            foreach (Shop::$items as $item) {
+                $item->display();
+            }
         }
     }
 
-    public static function filterItems($kat,$tip, $db)
+    public static function filterItems($kat,$tip)
     {
-        $fin = false;
-        if(!is_null($kat) && !is_null($tip) && !$fin)
+        $gotCat = isset($kat);
+        $gotType = isset($tip);
+        foreach (Shop::$items as $item)
         {
-            $result = $db->query("SELECT * FROM proizvodi WHERE kategorija_id IN("
-                . implode(',',$kat) . ") AND tip_id IN("
-                . implode(',',$tip) . ")" );
-            $fin = true;
+            $print = false;
+            if($gotCat)
+            {
+                if($gotType)
+                {
+                    $print = in_array($item->category, $kat)&&in_array($item->type, $tip);
+                }
+                else
+                {
+                    $print = in_array($item->category, $kat);
+                }
+            }
+            else
+            {
+                if($gotType)
+                {
+                    $print = in_array($item->type, $tip);
+                }
+            }
+            if($print)
+            {
+                $item->display();
+            }
         }
-        if(!is_null($kat)&& !$fin)
-        {
-            $result = $db->query("SELECT * FROM proizvodi WHERE kategorija_id IN("
-                . implode(',',$kat) . ")" );
-            $fin = true;
-        }
-        if(!is_null($tip)&&!$fin)
-        {
-            $result = $db->query("SELECT * FROM proizvodi WHERE tip_id IN("
-                . implode(',',$tip) . ")" );
-            $fin=true;
-        }
-        if($fin)
-        {
-            ispisiSadrzaj($result,"../");
-            return;
-        }
-        echo $result->error;
     }
+
+
 
 }

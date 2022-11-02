@@ -28,6 +28,7 @@ spl_autoload_register(function($class)
 	<link rel="stylesheet" type="text/css" href="public/css/contact.css">
 	<link rel="stylesheet" type="text/css" href="public/css/cart.css">
 	<link rel="stylesheet" type="text/css" href="public/css/index.css">
+    <link rel="stylesheet" type="text/css" href="public/css/add.css">
 </head>
 <body>
 	<div id="main">

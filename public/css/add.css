@@ -43,3 +43,10 @@ input[name="fcena"]{
 	border: 2px #F2644B solid;
 	border-radius: 5px;
 }
+
+#addBackground{
+	width: 100vw;
+	height: 100vh;
+	background: url("../img/Hero.webp");
+	background-size: cover;
+}

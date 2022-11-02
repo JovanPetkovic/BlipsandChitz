@@ -6,7 +6,7 @@ class Item
 {
 
     public function display(){
-        include "../Templates/Item.php";
+        include "../Templates/Components/Item.php";
     }
 
 
@@ -18,7 +18,16 @@ class Item
         $this->category = $item['kategorija_id'] ?? null;
         $this->type = $item['tip_id'] ?? null;
         $this->discount = $item['popust'] ?? null;
-     }
+    }
+
+    public function addItemToDB()
+    {
+
+    }
+    public function removeItemFromDB()
+    {
+
+    }
 
     /**
      * @return mixed|null
@@ -67,6 +76,22 @@ class Item
     public function getType()
     {
         return $this->type;
+    }
+
+    public static function getCategories($db)
+    {
+        $arr = array();
+        $result = $db->query("SELECT * FROM kategorije");
+        while($row = $result->fetch_assoc())
+            array_push($arr, $row);
+        return $arr;
+    }
+
+    public static function getTypes($db)
+    {
+        $arr = array();
+
+
     }
 
 }

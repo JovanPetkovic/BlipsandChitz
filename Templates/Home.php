@@ -1,7 +1,6 @@
 <?php
 
         $link = $_SERVER["DOCUMENT_ROOT"] . "/BlipsandChitz/";
-		require $link . "functions.php";
 		require $link . "/Modules/Shop/crud.php";
 		require $link . "cartFunctionality.php";
 		require $link . "ourPicks.php";
