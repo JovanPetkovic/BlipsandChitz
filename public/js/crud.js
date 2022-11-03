@@ -26,7 +26,7 @@ function contentSend(e){
 
 	formData.append('fsubmit', true);
 
-	xmlHttp.open("POST", "../update.php", true);
+	xmlHttp.open("POST", "/add", true);
 	xmlHttp.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
 	xmlHttp.send(new FormData(document.querySelector("#addnew")));
 

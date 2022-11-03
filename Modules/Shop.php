@@ -62,6 +62,15 @@ class Shop
         }
     }
 
-
+    public static function getDiscountItems()
+    {
+        foreach(Shop::$items as $item)
+        {
+            if($item->getDiscount()==1)
+            {
+                $item->display();
+            }
+        }
+    }
 
 }

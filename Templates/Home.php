@@ -1,13 +1,10 @@
 <?php
+use Modules\Shop;
 
-        $link = $_SERVER["DOCUMENT_ROOT"] . "/BlipsandChitz/";
-		require $link . "/Modules/Shop/crud.php";
-		require $link . "cartFunctionality.php";
-		require $link . "ourPicks.php";
-		// Funkcija crud daje CRUD funkcionalnosti web aplikaciji i prikazuje potrebne elemente web stranice
-
- 		echo '</div>';
- 	?>
+$link = $_SERVER["DOCUMENT_ROOT"] . "/BlipsandChitz/";
+Shop::getItems($db);
+echo '</div>';
+?>
 
  		<div id="hero-image">
  			<div class="container">
@@ -32,7 +29,7 @@
  		</div>
  		<div id="our-picks">
  			<div class="items">
- 				<?php ourPicks($db) ?>
+ 				<?php  Shop::getDiscountItems() ?>
  			</div>
  		</div>
 

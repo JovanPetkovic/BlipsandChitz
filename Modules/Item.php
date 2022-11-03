@@ -20,9 +20,17 @@ class Item
         $this->discount = $item['popust'] ?? null;
     }
 
-    public function addItemToDB()
+    public static function addItemToDB($db)
     {
-
+        $cena = floatval($_POST['fcena']);
+        $img = dirname(__DIR__) . '/public/img/' . basename($_FILES["fimg"]["name"]);
+        $slika = $_FILES['fimg']['tmp_name'];
+        move_uploaded_file( $slika,$img) or die( "Could not copy file!");
+        $kat = intval($_POST['kategorija']);
+        $tip = intval($_POST['tip']);
+        $img = 'img/' . basename($_FILES["fimg"]["name"]);
+        $result = $db->query("INSERT INTO proizvodi (Cena,Slika,kategorija_id,tip_id) VALUES ($cena, '$img', $kat, $tip)");
+        echo $db->error;
     }
     public function removeItemFromDB()
     {
@@ -90,7 +98,10 @@ class Item
     public static function getTypes($db)
     {
         $arr = array();
-
+        $result = $db->query("SELECT * FROM tip");
+        while($row = $result->fetch_assoc())
+            array_push($arr, $row);
+        return $arr;
 
     }
 

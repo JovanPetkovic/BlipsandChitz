@@ -10,12 +10,17 @@
         <?php
         foreach(Item::getCategories($db) as $category)
         {
-            echo "<option value='" . $category['kategorija_id'] . "'>" . $category['ime_kategorije'] . "</option>";
+            echo "<option value='" . $category['kategorija_id'] . "'>" . $category['imeKategorije'] . "</option>";
         }
         ?>
     </select>
     <select name="tip">
-
+        <?php
+        foreach(Item::getTypes($db) as $tip)
+        {
+            echo "<option value='" . $tip['tip_id'] . "'>" . $tip['ime'] . "</option>";
+        }
+        ?>
     </select>
     <input type="submit" name="fsubmit" value="Submit">
 </form>
