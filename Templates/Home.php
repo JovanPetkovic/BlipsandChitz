@@ -28,6 +28,7 @@ echo '</div>';
  			</form>
  		</div>
  		<div id="our-picks">
+            <h1> Super Sale For You</h1>
  			<div class="items">
  				<?php  Shop::getDiscountItems() ?>
  			</div>

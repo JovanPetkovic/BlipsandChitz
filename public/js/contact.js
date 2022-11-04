@@ -35,7 +35,7 @@ function contactSend(event){
 	//Otvaramo post zahtev i contact.php kod vrsi prenos parametra koji se nalaze u str
 	//u bazu podataka
 
-	xmlHttp.open('POST', 'contact.php?' + str);
+	xmlHttp.open('POST', 'contact?' + str);
 
 	xmlHttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 	xmlHttp.setRequestHeader('X-Requested-With', 'XMLHttpRequest');

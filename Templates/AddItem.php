@@ -1,5 +1,6 @@
 <?php use Modules\Item; ?>
 <div id="addBackground">
+    <h1>Add Item</h1>
 <form method="post" id="addnew" enctype="multipart/form-data">
     <div id="img-src">
         <label for="fimg">Image Source: </label>

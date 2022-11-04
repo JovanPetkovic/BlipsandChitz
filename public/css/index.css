@@ -1,3 +1,8 @@
+@font-face {
+	font-family: "National Cartoon";
+	src: url("../fonts/national-cartoon/National Cartoon.ttf") format('truetype');
+}
+
 body{
 	background: none !important;
 }
@@ -98,4 +103,18 @@ body{
 	background-image: url("../img/hxhlogo.png");
 	background-size: 100%;
 	background-position: center;
+}
+
+h1{
+	font-family: "National Cartoon";
+	text-align: center;
+	margin: 0 auto;
+	padding: 2rem 0;
+	padding-top: 4rem;
+	color: antiquewhite;
+	font-size: 5rem;
+}
+
+.top-h1{
+	margin-top: 5rem;
 }
