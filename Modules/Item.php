@@ -32,9 +32,25 @@ class Item
         $result = $db->query("INSERT INTO proizvodi (Cena,Slika,kategorija_id,tip_id) VALUES ($cena, '$img', $kat, $tip)");
         echo $db->error;
     }
-    public function removeItemFromDB()
-    {
 
+    public static function deleteItem($db)
+    {
+        if(!empty($_POST['id']))
+        {
+            $result = $db->query("DELETE FROM proizvodi WHERE ID=" . $_POST['id']);
+            if($result)
+            {
+                echo "<h1>Success</h1>";
+            }
+            else
+            {
+                echo "<h1>Fail</h1>";
+            }
+        }
+    }
+    public static function update($db)
+    {
+        include_once "../Templates/Components/updateForm.php";
     }
 
     /**
