@@ -1,5 +1,5 @@
 <?php
-use Modules\Shop;
+use app\Models\Shop;
 
 $link = $_SERVER["DOCUMENT_ROOT"] . "/BlipsandChitz/";
 Shop::getItems($db);

@@ -1,14 +1,31 @@
 <?php
-namespace Modules;
+namespace app\Models;
 use Templates;
 
 class Item
 {
 
+    private static $db;
+    private static $list = array();
+    private static $keyNumber = 0;
+
     public function display(){
         include "../Templates/Components/Item.php";
     }
 
+    public static function setDB($dBase)
+    {
+        Item::$db = $dBase;
+    }
+
+    public static function initItemList()
+    {
+        $result = Item::$db->query("SELECT * FROM proizvodi");
+        while($row = $result->fetch_assoc())
+        {
+            array_push(Item::$list, new Item($row));
+        }
+    }
 
     public function __construct($item)
     {
@@ -18,26 +35,26 @@ class Item
         $this->category = $item['kategorija_id'] ?? null;
         $this->type = $item['tip_id'] ?? null;
         $this->discount = $item['popust'] ?? null;
+        Item::$list[Item::$keyNumber] = $this;
+        $this->key = Item::$keyNumber;
+        Item::$keyNumber++;
     }
 
-    public static function addItemToDB($db)
+    public static function addToDB($cena, $img, $kat, $tip)
     {
-        $cena = floatval($_POST['fcena']);
-        $img = dirname(__DIR__) . '/public/img/' . basename($_FILES["fimg"]["name"]);
-        $slika = $_FILES['fimg']['tmp_name'];
-        move_uploaded_file( $slika,$img) or die( "Could not copy file!");
-        $kat = intval($_POST['kategorija']);
-        $tip = intval($_POST['tip']);
-        $img = 'img/' . basename($_FILES["fimg"]["name"]);
-        $result = $db->query("INSERT INTO proizvodi (Cena,Slika,kategorija_id,tip_id) VALUES ($cena, '$img', $kat, $tip)");
-        echo $db->error;
+        $result = Item::$db->query("INSERT INTO proizvodi (Cena,Slika,kategorija_id,tip_id) VALUES ($cena, '$img', $kat, $tip)");
+        $item['ID'] = Item::$db->insert_id;
+        $item['Cena'] = $cena;
+        $item['Slika'] = $img;
+        $item['kategorija_id'] = $kat;
+        $item['tip_id'] = $tip;
     }
 
-    public static function deleteItem($db)
+    public function deleteItem()
     {
         if(!empty($_POST['id']))
         {
-            $result = $db->query("DELETE FROM proizvodi WHERE ID=" . $_POST['id']);
+            $result = Item::$db->query("DELETE FROM proizvodi WHERE ID=" . $_POST['id']);
             if($result)
             {
                 echo "<h1>Success</h1>";
@@ -102,23 +119,36 @@ class Item
         return $this->type;
     }
 
-    public static function getCategories($db)
+    public static function getCategories()
     {
         $arr = array();
-        $result = $db->query("SELECT * FROM kategorije");
+        $result = Item::$db->query("SELECT * FROM kategorije");
         while($row = $result->fetch_assoc())
             array_push($arr, $row);
         return $arr;
     }
 
-    public static function getTypes($db)
+    public static function getTypes()
     {
         $arr = array();
-        $result = $db->query("SELECT * FROM tip");
+        $result = Item::$db->query("SELECT * FROM tip");
         while($row = $result->fetch_assoc())
             array_push($arr, $row);
         return $arr;
 
+    }
+
+    public static function getItemByID($id)
+    {
+        $key = array_search($id, array_column(Item::$list, 'id'));
+        return Item::$list[$key];
+    }
+
+    public function delete()
+    {
+        unset(Item::$list[$this->key]);
+        $result = Item::$db->query("DELETE FROM proizvodi WHERE ID = $this->id");
+        return $result;
     }
 
 }

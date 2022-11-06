@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules;
+namespace app\Models;
 
 class Contact
 {

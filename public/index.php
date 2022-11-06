@@ -2,9 +2,9 @@
 
 $request = $_SERVER['REQUEST_URI'];
 include $_SERVER["DOCUMENT_ROOT"] . "/BlipsandChitz/Templates/Components/header.php";
-use Modules\Item;
-use Modules\Contact;
-use Modules\Shop;
+use app\Controllers\ItemController;
+use app\Models\Contact;
+use app\Models\Shop;
 
 $baseUrl = '/BlipsandChitz';
 switch ($request)
@@ -15,46 +15,55 @@ switch ($request)
     case $baseUrl . '/shop':
         include_once "../Templates/Shop.php";
         break;
-    case $baseUrl . '/add':
-        if(count($_POST)==4 ?? false)
-        {
-            Item::addItemToDB($db);
-        }
-        else
-        {
-            include_once "../Templates/AddItem.php";
-        }
-        break;
-    case $baseUrl . '/contact':
-        if(count($_POST) == 4 ?? false)
-        {
-            $contact = new Contact($_POST['name'], $_POST['email'], $_POST['text']);
-            echo $contact->pushToDB($db);
-            echo "<h1> Success </h1>";
-        }
-        else {
-            include_once '../Templates/Contact.html';
-        }
-        break;
     case $baseUrl . '/item':
         if(!empty($_POST['delete']))
         {
-            Item::deleteItem($db);
+            ItemController::deleteItem();
         }
-        if(!empty($_POST['update']))
+        elseif(!empty($_POST['update']))
         {
-            include_once "../Templates/Shop.php";
-            Item::update($db);
+            ItemController::updateItem();
         }
-        break;
-    case $baseUrl . '/update':
-        $id = $_POST['id']??false;
-        if($id)
+        elseif(!empty($_POST['fsubmit']))
         {
-            $result = $db->query("UPDATE proizvodi SET Cena =" . $_POST["fcena"] . " WHERE ID = $id");
-            echo $result;
+            ItemController::addItem();
         }
+        else{
+            echo "error 404";
+        }
+    case $baseUrl . '/add':
+        ItemController::showItemForm();
         break;
+//    case $baseUrl . '/contact':
+//        if(count($_POST) == 4 ?? false)
+//        {
+//            $contact = new Contact($_POST['name'], $_POST['email'], $_POST['text']);
+//            echo $contact->pushToDB($db);
+//            echo "<h1> Success </h1>";
+//        }
+//        else {
+//            include_once '../Templates/Contact.html';
+//        }
+//        break;
+//    case $baseUrl . '/item':
+//        if(!empty($_POST['delete']))
+//        {
+//            Item::deleteItem($db);
+//        }
+//        if(!empty($_POST['update']))
+//        {
+//            include_once "../Templates/Shop.php";
+//            Item::update($db);
+//        }
+//        break;
+//    case $baseUrl . '/update':
+//        $id = $_POST['id']??false;
+//        if($id)
+//        {
+//            $result = $db->query("UPDATE proizvodi SET Cena =" . $_POST["fcena"] . " WHERE ID = $id");
+//            echo $result;
+//        }
+//        break;
     default:
         echo "Error 404";
         break;

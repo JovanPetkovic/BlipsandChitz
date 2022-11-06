@@ -1,8 +1,8 @@
 <?php
 
-namespace Modules;
+namespace app\Models;
 
-use Modules\Item;
+use app\Models\Item;
 
 class Shop
 {
@@ -13,7 +13,7 @@ class Shop
         $result = $db->query("SELECT * FROM proizvodi");
         while($row = $result->fetch_assoc())
         {
-            array_push(Shop::$items,new Item($row));
+            array_push(Shop::$items,new Item($row, $db));
         }
     }
 

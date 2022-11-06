@@ -1,6 +1,6 @@
 var contentForm = document.querySelector("#addnew");
 var xmlHttp = new XMLHttpRequest();
-
+var formData;
 setTimeout(domVarSetup, 500);
 
 
@@ -11,9 +11,7 @@ function contentSend(e){
 		alert("Browser ne podrzava XMLHttpRequest");
 		return;
 	}
-
-	//Memorisemo podatke koje treba poslati
-	var formData = new FormData(document.querySelector("#addnew"));
+	formData = new FormData(contentForm);
 	var cena = contentForm.querySelector("#content-cena").value;
 	var file = contentForm.querySelector("#content-file").files[0];
 	var kategorija = contentForm.querySelectorAll("select")[0].value;
@@ -26,12 +24,24 @@ function contentSend(e){
 
 	formData.append('fsubmit', true);
 
-	xmlHttp.open("POST", "/add", true);
+	xmlHttp.open("POST", "/BlipsandChitz/item", true);
 	xmlHttp.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
-	xmlHttp.send(new FormData(document.querySelector("#addnew")));
+	xmlHttp.send(formData);
+	if(xmlHttp.readyState==1)
+	{
+		setTimeout(function(){
+			window.location.href = "/BlipsandChitz/shop";
+		},1000);
+	}
 
 }
 
+
+function addItem()
+{
+
+
+}
 
 function contentCheck(){
 	var fileField = contentForm.querySelector("#content-file");

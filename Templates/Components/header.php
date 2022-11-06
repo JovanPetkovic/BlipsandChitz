@@ -1,4 +1,5 @@
 <?php
+
 $mysql_server = "localhost";
 $mysql_user = "root";
 $mysql_password = "banana554";
@@ -10,6 +11,9 @@ spl_autoload_register(function($class)
     $path = dirname(dirname(__DIR__)) . '/' . str_replace('\\', '/', $class) . ".php";
     include $path;
 });
+use app\Models\Item;
+Item::setDB($db);
+Item::initItemList();
 ?>
 
 <!DOCTYPE html>

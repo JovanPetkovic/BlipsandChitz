@@ -1,5 +1,5 @@
 <?php
-use Modules\Shop;
+use app\Models\Shop;
 Shop::getItems($db);
 include "Components/filters.html";
 ?>
@@ -11,3 +11,4 @@ include "Components/filters.html";
 </div>
 <div id="back"></div>
 <script src="/BlipsandChitz/public/js/shop.js"></script>
+<script type="text/javascript" src="public/js/crud.js"></script>
