@@ -119,6 +119,16 @@ class Item
         return $this->type;
     }
 
+    public function updateItem($price, $img, $category, $type)
+    {
+        $this->image = $img;
+        $this->category = $category;
+        $this->price = $price;
+        $this->type = $type;
+        $result = Item::$db->query("UPDATE proizvodi SET Cena = $this->price, Slika = '$this->image', kategorija_id = $this->category,
+                                    tip_id = $this->type WHERE ID = $this->id");
+    }
+
     public static function getCategories()
     {
         $arr = array();

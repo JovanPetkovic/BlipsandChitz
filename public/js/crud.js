@@ -1,4 +1,4 @@
-var contentForm = document.querySelector("#addnew");
+var contentForm = document.querySelector(".update-add");
 var xmlHttp = new XMLHttpRequest();
 var formData;
 setTimeout(domVarSetup, 500);
@@ -12,6 +12,7 @@ function contentSend(e){
 		return;
 	}
 	formData = new FormData(contentForm);
+	console.log(contentForm);
 	var cena = contentForm.querySelector("#content-cena").value;
 	var file = contentForm.querySelector("#content-file").files[0];
 	var kategorija = contentForm.querySelectorAll("select")[0].value;
@@ -22,7 +23,16 @@ function contentSend(e){
 		return;
 	}
 
-	formData.append('fsubmit', true);
+	if(contentForm.querySelectorAll("input[name=fsubmit]").length > 0)
+	{
+		formData.append('fsubmit', true);
+		console.log("add");
+	}
+	else if (contentForm.querySelectorAll("input[name=update]").length > 0)
+	{
+		formData.append('update', true);
+		console.log("update");
+	}
 
 	xmlHttp.open("POST", "/BlipsandChitz/item", true);
 	xmlHttp.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
@@ -52,6 +62,6 @@ function contentCheck(){
 }
 
 function domVarSetup(){
-	contentForm = document.querySelector("#addnew");
+	contentForm = document.querySelector("form");
 	contentForm.addEventListener('submit', contentSend);
 }

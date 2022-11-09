@@ -1,8 +1,8 @@
 <?php use app\Models\Item; ?>
 <div id="addBackground">
     <h1>Add Item</h1>
-<form method="post" id="addnew" action="/BlipsandChitz/item"enctype="multipart/form-data">
-    <div id="img-src">
+<form method="post" class=".update-add" id="addnew" action="/BlipsandChitz/item"enctype="multipart/form-data">
+    <div class="img-src">
         <label for="fimg">Image Source: </label>
      <input type="file" name="fimg" required id="content-file">
     </div>

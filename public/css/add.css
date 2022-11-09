@@ -21,11 +21,14 @@
 	color: white;
 }
 
-#img-src{
-	width: 300px;
+.img-src{
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+}
+
+option{
+	background: white;
 }
 
 #addnew input[type="submit"]{

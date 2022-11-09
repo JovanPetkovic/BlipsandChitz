@@ -20,17 +20,22 @@ switch ($request)
         {
             ItemController::deleteItem();
         }
-        elseif(!empty($_POST['update']))
+        elseif(!empty($_POST['edit']))
         {
-            ItemController::updateItem();
+            ItemController::editItem();
         }
         elseif(!empty($_POST['fsubmit']))
         {
             ItemController::addItem();
         }
+        elseif(!empty($_POST['update']))
+        {
+            ItemController::updateItem();
+        }
         else{
             echo "error 404";
         }
+        break;
     case $baseUrl . '/add':
         ItemController::showItemForm();
         break;

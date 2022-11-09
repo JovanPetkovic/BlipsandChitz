@@ -8,6 +8,6 @@
         <image class='slika' src='<?= $this->getImage() ?>' width='auto' height='250' >
         <button type='submit' name='addToCart' class='buyBtn'>Add to Cart</button>
         <input type='submit' name='delete' class='delete' value='Delete'/>
-        <input type='submit' name='update' class='update' value='Update'/>
+        <input type='submit' name='edit' class='update' value='Edit'/>
     </form>
 
