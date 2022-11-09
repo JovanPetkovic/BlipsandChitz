@@ -3,6 +3,7 @@
 $request = $_SERVER['REQUEST_URI'];
 include $_SERVER["DOCUMENT_ROOT"] . "/BlipsandChitz/Templates/Components/header.php";
 use app\Controllers\ItemController;
+use app\Controllers\ContactController;
 use app\Models\Contact;
 use app\Models\Shop;
 
@@ -39,7 +40,16 @@ switch ($request)
     case $baseUrl . '/add':
         ItemController::showItemForm();
         break;
-//    case $baseUrl . '/contact':
+    case $baseUrl . '/contact':
+        if(!empty($_POST['submitContact']))
+        {
+            ContactController::addContact();
+        }
+        else
+        {
+            ContactController::showForm();
+        }
+        break;
 //        if(count($_POST) == 4 ?? false)
 //        {
 //            $contact = new Contact($_POST['name'], $_POST['email'], $_POST['text']);
@@ -48,25 +58,6 @@ switch ($request)
 //        }
 //        else {
 //            include_once '../Templates/Contact.html';
-//        }
-//        break;
-//    case $baseUrl . '/item':
-//        if(!empty($_POST['delete']))
-//        {
-//            Item::deleteItem($db);
-//        }
-//        if(!empty($_POST['update']))
-//        {
-//            include_once "../Templates/Shop.php";
-//            Item::update($db);
-//        }
-//        break;
-//    case $baseUrl . '/update':
-//        $id = $_POST['id']??false;
-//        if($id)
-//        {
-//            $result = $db->query("UPDATE proizvodi SET Cena =" . $_POST["fcena"] . " WHERE ID = $id");
-//            echo $result;
 //        }
 //        break;
     default:

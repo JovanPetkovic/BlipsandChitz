@@ -11,9 +11,12 @@ spl_autoload_register(function($class)
     $path = dirname(dirname(__DIR__)) . '/' . str_replace('\\', '/', $class) . ".php";
     include $path;
 });
+
+use app\Models\Contact;
 use app\Models\Item;
 Item::setDB($db);
 Item::initItemList();
+Contact::setDB($db);
 ?>
 
 <!DOCTYPE html>
