@@ -12,15 +12,25 @@ function contactSend(event){
 		return;
 	}
 	var formData = new FormData(contactForm);
-
+	var output = document.querySelector("#output");
 	formData.append('submitContact', 'true');
 	xmlHttp.open('POST', '/BlipsandChitz/contact');
 
 	xmlHttp.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
 	xmlHttp.send(formData);
-
-	if(xmlHttp.readyState==1)
+	xmlHttp.onreadystatechange = function()
 	{
+		output.style.visibility = "visible";
+		if(xmlHttp.readyState == XMLHttpRequest.DONE && xmlHttp.status == 200) {
+			console.log("radi");
+
+			output.querySelector("#succ").style.display = "block";
+
+		}
+		else
+		{
+			output.querySelector("#fail").style.display = "block";
+		}
 		setTimeout(function(){
 			window.location.href = "/BlipsandChitz/";
 		},1000);

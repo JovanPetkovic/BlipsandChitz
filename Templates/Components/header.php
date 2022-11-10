@@ -49,3 +49,7 @@ Contact::setDB($db);
 			<a href="/BlipsandChitz/contact">Contact</a>
 		</div>
 	</div>
+    <div id="output">
+        <h1 id="succ">Success</h1>
+        <h1 id="fail">Fail</h1>
+    </div>

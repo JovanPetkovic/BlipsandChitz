@@ -33,25 +33,34 @@ function contentSend(e){
 		formData.append('update', true);
 		console.log("update");
 	}
-
+	var output = document.querySelector("#output");
 	xmlHttp.open("POST", "/BlipsandChitz/item", true);
 	xmlHttp.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
 	xmlHttp.send(formData);
-	if(xmlHttp.readyState==1)
+	xmlHttp.onreadystatechange = function()
 	{
-		setTimeout(function(){
-			window.location.href = "/BlipsandChitz/shop";
-		},1000);
+		if(this.readyState != 4) return;
+		output.style.visibility = "visible";
+		if(xmlHttp.readyState == XMLHttpRequest.DONE && xmlHttp.status == 200)
+		{
+			output.querySelector("#succ").style.display = "block";
+			setTimeout(function(){
+				window.location.href = "/BlipsandChitz/";
+			},1000);
+		}
+		else
+		{
+			output.querySelector("#fail").style.display = "block";
+			setTimeout(function(){
+				window.location.href = "/BlipsandChitz/";
+			},1000);
+		}
+
 	}
 
 }
 
 
-function addItem()
-{
-
-
-}
 
 function contentCheck(){
 	var fileField = contentForm.querySelector("#content-file");
