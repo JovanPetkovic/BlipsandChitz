@@ -39,7 +39,7 @@ Contact::setDB($db);
 </head>
 <body>
 	<div id="main">
-		<img src="/BlipsandChitz/img/ball.webp" id="ball">
+		<img src="public/img/ball.webp" id="ball">
 		<div class="links">
 			<a href="/BlipsandChitz">Home</a>
 			<a href="/BlipsandChitz/shop">Shop</a>

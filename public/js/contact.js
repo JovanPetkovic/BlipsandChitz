@@ -11,21 +11,25 @@ function contactSend(event){
 		alert("Browser ne podrzava XMLHttpRequest");
 		return;
 	}
+
 	var formData = new FormData(contactForm);
+	if(!checkData(formData.get('name'), formData.get('email'))){
+		output.querySelector("#fail").style.display = "block";
+		return;
+	}
 	var output = document.querySelector("#output");
 	formData.append('submitContact', 'true');
+
 	xmlHttp.open('POST', '/BlipsandChitz/contact');
 
 	xmlHttp.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
 	xmlHttp.send(formData);
 	xmlHttp.onreadystatechange = function()
 	{
+		if(this.readyState !== 4) return;
 		output.style.visibility = "visible";
-		if(xmlHttp.readyState == XMLHttpRequest.DONE && xmlHttp.status == 200) {
-			console.log("radi");
-
+		if(xmlHttp.readyState === XMLHttpRequest.DONE && xmlHttp.status === 200) {
 			output.querySelector("#succ").style.display = "block";
-
 		}
 		else
 		{
@@ -43,8 +47,10 @@ function checkEmail(email){
 		return true;
 	}
 	else{
-		form.querySelector("#contact-email").insertAdjacentHTML("afterend", 
-		"<p class='contact-error'>Your email is not in right format</p>");
+		if(form.querySelector('.contact-error')===null) {
+			form.querySelector("#contact-email").insertAdjacentHTML("afterend",
+				"<p class='contact-error'>Your email is not in right format</p>");
+		}
 		return false;
 	}
 }

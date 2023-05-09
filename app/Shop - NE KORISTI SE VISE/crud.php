@@ -57,7 +57,7 @@
 
 			echo '<button id="filter-btn"></button>
 				<div id="select">
-					<form method="post">
+					<form method="post" action="shop">
 					<div>
 						<label>Hunter X Hunter</label>
 						<input type="checkbox" name="tip[]" value="1">

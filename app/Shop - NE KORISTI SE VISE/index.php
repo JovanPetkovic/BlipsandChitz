@@ -35,6 +35,7 @@
 	 		echo '</div>';
  		?>
  			<div id="back"></div>
- 		<script type="text/javascript" src="../js/cartFunctionality.js"></script><script type="text/javascript" src="../js/shop.js"></script>
+ 		<script type="text/javascript" src="/public/js/cartFunctionality.js"></script>
+		<script type="text/javascript" src="/public/js/shop.js"></script>
 	</body>
 </html>

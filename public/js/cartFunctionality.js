@@ -9,6 +9,7 @@ buyButton.forEach( function(element, index) {
 
 function addToCart(event){
 	event.preventDefault();
+	console.log("dodato u cart");
 	if(xmlHttp==null){
 		alert("Browser ne podrzava XMLHttpRequest");
 		return;

@@ -12,7 +12,7 @@ echo '</div>';
  			</div>
  		</div>
  		<div id="shortcuts">
- 			<form class="container" id="picks-form"method="POST" action="shop/index.php">
+ 			<form class="container" id="picks-form"method="POST" action="shop">
  				<div id="wc3">
  					<input type="submit" name="tip[]" value="2">
  				</div>
@@ -34,6 +34,6 @@ echo '</div>';
  			</div>
  		</div>
 
- 		<script type="text/javascript" src="js/index.js"></script>
+ 		<script type="text/javascript" src="public/js/index.js"></script>
 	</body>
 </html>

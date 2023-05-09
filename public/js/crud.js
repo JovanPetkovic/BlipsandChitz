@@ -39,9 +39,9 @@ function contentSend(e){
 	xmlHttp.send(formData);
 	xmlHttp.onreadystatechange = function()
 	{
-		if(this.readyState != 4) return;
+		if(this.readyState !== 4) return;
 		output.style.visibility = "visible";
-		if(xmlHttp.readyState == XMLHttpRequest.DONE && xmlHttp.status == 200)
+		if(xmlHttp.readyState === XMLHttpRequest.DONE && xmlHttp.status === 200)
 		{
 			output.querySelector("#succ").style.display = "block";
 			setTimeout(function(){
