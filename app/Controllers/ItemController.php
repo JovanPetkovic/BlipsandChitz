@@ -11,7 +11,6 @@ class ItemController
         {
             $result = $item->delete();
         }
-        header("Location: /BlipsandChitz/shop");
 
     }
     public static function editItem()

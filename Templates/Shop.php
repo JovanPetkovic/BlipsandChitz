@@ -11,4 +11,4 @@ include "Components/filters.html";
 </div>
 <div id="back"></div>
 <script src="public/js/shop.js"></script>
-<script type="text/javascript" src="public/js/cartFunctionality.js"></script>
+<script type="text/javascript" src="public/js/delete.js"></script>

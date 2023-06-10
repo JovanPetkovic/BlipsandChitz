@@ -31,12 +31,13 @@ function contactSend(event){
 		if(xmlHttp.readyState === XMLHttpRequest.DONE && xmlHttp.status === 200) {
 			output.querySelector("#succ").style.display = "block";
 		}
-		else
-		{
+		else {
 			output.querySelector("#fail").style.display = "block";
 		}
 		setTimeout(function(){
-			window.location.href = "/BlipsandChitz/";
+			output.style.visibility = "hidden";
+			output.querySelector("#succ").style = "";
+			output.querySelector("#fail").style = "";
 		},1000);
 	}
 }

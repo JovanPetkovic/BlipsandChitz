@@ -1,4 +1,4 @@
-var contentForm = document.querySelector(".update-add");
+var formData = document.querySelector(".update-add");
 var xmlHttp = new XMLHttpRequest();
 var formData;
 setTimeout(domVarSetup, 500);
@@ -44,18 +44,16 @@ function contentSend(e){
 		if(xmlHttp.readyState === XMLHttpRequest.DONE && xmlHttp.status === 200)
 		{
 			output.querySelector("#succ").style.display = "block";
-			setTimeout(function(){
-				window.location.href = "/BlipsandChitz/";
-			},1000);
 		}
 		else
 		{
 			output.querySelector("#fail").style.display = "block";
-			setTimeout(function(){
-				window.location.href = "/BlipsandChitz/";
-			},1000);
 		}
-
+		setTimeout(function(){
+			output.style.visibility = "hidden";
+			output.querySelector("#succ").style = "";
+			output.querySelector("#fail").style = "";
+		},1000);
 	}
 
 }
